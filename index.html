@@ -346,6 +346,8 @@
       gap: 16px;
       margin-bottom: 28px;
     }
+    /* Dashboard: no dangling space when stats-row is the only section */
+    #page-dashboard .stats-row:last-child { margin-bottom: 0; }
 
     .stat-card {
       background: var(--white);
@@ -946,6 +948,8 @@ tr.q-skipped { opacity: .45; text-decoration: line-through; background: repeatin
 .q-cat-pill.hba{background:#dcfce7;color:#166534}
 .q-cat-pill.psu{background:#fee2e2;color:#991b1b}
 .q-cat-pill.support{background:#dbeafe;color:#1e40af}
+    .q-cat-pill.nic     { background:#ecfeff; color:#0e7490; }
+    .q-cat-pill.storage { background:#faf5ff; color:#6d28d9; }
 </style>
 </head>
 <body>
@@ -1082,199 +1086,6 @@ tr.q-skipped { opacity: .45; text-decoration: line-through; background: repeatin
           <div class="stat-value stat-purple">24</div>
           <div class="stat-sub">Með aðgang</div>
         </div>
-      </div>
-
-      <!-- Project cards -->
-      <div class="section-title">📁 Öll verkefni</div>
-      <div class="projects-grid">
-
-        <!-- Teymi -->
-        <div class="project-card" onclick="showPage('teymi', null)">
-          <div class="card-top">
-            <div class="card-icon card-icon-pink">👥</div>
-            <div class="card-title-block">
-              <div class="card-title">Teymis púls</div>
-              <div class="card-desc">Staða teymisins í dag — fjarviðvera, frí og veikindi</div>
-            </div>
-            <span class="status-badge status-active"><span class="status-dot"></span>Virkt</span>
-          </div>
-          <div class="card-body">
-            <div class="card-stats">
-              <div class="card-stat">
-                <div class="card-stat-value stat-green">13</div>
-                <div class="card-stat-label">Á skrifstofu</div>
-              </div>
-              <div class="card-stat">
-                <div class="card-stat-value stat-orange">3</div>
-                <div class="card-stat-label">Fjarvinnu</div>
-              </div>
-              <div class="card-stat">
-                <div class="card-stat-value stat-indigo">0</div>
-                <div class="card-stat-label">Veikir</div>
-              </div>
-            </div>
-            <ul class="card-features">
-              <li>Merkja sig í fjarvinnu, frí eða veikan</li>
-              <li>Sumarfrí beiðnir og samþykktir</li>
-              <li>Vikuleg sjálfgefin staða</li>
-            </ul>
-          </div>
-          <div class="card-footer">
-            <button class="card-link" onclick="event.stopPropagation(); showPage('teymi', null)" title="Opna 👥 Teymis púls">Opna → Teymis púls</button>
-            <div class="card-users">
-              <div class="avatar-mini">DO</div>
-              <div class="avatar-mini">BS</div>
-              <div class="avatar-mini">+8</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tilboð -->
-        <div class="project-card" onclick="showPage('tilbod', null)">
-          <div class="card-top">
-            <div class="card-icon card-icon-blue">📋</div>
-            <div class="card-title-block">
-              <div class="card-title">Tilboðsgerð</div>
-              <div class="card-desc">Draga inn tilboð frá birgjum og umbreyta í tilboð</div>
-            </div>
-            <span class="status-badge status-active"><span class="status-dot"></span>Virkt</span>
-          </div>
-          <div class="card-body">
-            <div class="card-stats">
-              <div class="card-stat">
-                <div class="card-stat-value stat-indigo">3</div>
-                <div class="card-stat-label">Sniðmát</div>
-              </div>
-              <div class="card-stat">
-                <div class="card-stat-value stat-green">✓</div>
-                <div class="card-stat-label">Gengi auto</div>
-              </div>
-              <div class="card-stat">
-                <div class="card-stat-value stat-orange">PDF</div>
-                <div class="card-stat-label">Úttak</div>
-              </div>
-            </div>
-            <ul class="card-features">
-              <li>Greinir gjaldmiðil og sækir gengi</li>
-              <li>Vistar Excel og PDF sjálfkrafa</li>
-              <li>Advania, Cisco, Dell DC sniðmát</li>
-            </ul>
-          </div>
-          <div class="card-footer">
-            <button class="card-link" onclick="event.stopPropagation(); showPage('tilbod', null)" title="Opna 📋 Tilboðsgerð">Opna → Tilboðsgerð</button>
-            <div class="card-users">
-              <div class="avatar-mini">SÁ</div>
-              <div class="avatar-mini">KH</div>
-              <div class="avatar-mini">+5</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Gráður -->
-        <div class="project-card" onclick="showPage('graður', null)">
-          <div class="card-top">
-            <div class="card-icon card-icon-green">🎓</div>
-            <div class="card-title-block">
-              <div class="card-title">Gráður starfsmanna</div>
-              <div class="card-desc">Sölu- og tækniprófgráður og gildistími þeirra</div>
-            </div>
-            <span class="status-badge status-active"><span class="status-dot"></span>Virkt</span>
-          </div>
-          <div class="card-body">
-            <div class="card-stats">
-              <div class="card-stat">
-                <div class="card-stat-value stat-indigo">24</div>
-                <div class="card-stat-label">Heildar</div>
-              </div>
-              <div class="card-stat">
-                <div class="card-stat-value stat-green">24</div>
-                <div class="card-stat-label">Virkar</div>
-              </div>
-              <div class="card-stat">
-                <div class="card-stat-value stat-orange">0</div>
-                <div class="card-stat-label">Renna út</div>
-              </div>
-            </div>
-            <ul class="card-features">
-              <li>Fylgjast með gildistíma gráða</li>
-              <li>Senda sem PDF með tilboðum</li>
-              <li>Skoða badge og prenta</li>
-            </ul>
-          </div>
-          <div class="card-footer">
-            <button class="card-link" onclick="event.stopPropagation(); showPage('graður', null)" title="Opna 🎓 Gráður">Opna → Gráður</button>
-            <div class="card-users">
-              <div class="avatar-mini">ÁH</div>
-              <div class="avatar-mini">GB</div>
-              <div class="avatar-mini">+6</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Lyfturæða -->
-        <div class="project-card" onclick="showPage('lyfturaeda', null)">
-          <div class="card-top">
-            <div class="card-icon card-icon-purple">🎤</div>
-            <div class="card-title-block">
-              <div class="card-title">Lyfturæðu portall</div>
-              <div class="card-desc">Kynningarefni og lyfturæður fyrir söluteymið</div>
-            </div>
-            <span class="status-badge status-dev"><span class="status-dot"></span>Í þróun</span>
-          </div>
-          <div class="card-body">
-            <div class="card-stats">
-              <div class="card-stat">
-                <div class="card-stat-value" style="color:var(--blue)">🔜</div>
-                <div class="card-stat-label">Kemur</div>
-              </div>
-            </div>
-            <ul class="card-features">
-              <li>Stuttar, slagkræfar kynningar</li>
-              <li>Skiptir eftir vörum og þjónustu</li>
-              <li>Auðvelt að deila með viðskiptavinum</li>
-            </ul>
-          </div>
-          <div class="card-footer">
-            <span style="font-size:12px;color:var(--gray);">Kemur fljótlega</span>
-          </div>
-        </div>
-
-        <!-- Samningar -->
-        <div class="project-card" onclick="showPage('samningar', null)">
-          <div class="card-top">
-            <div class="card-icon card-icon-teal">📝</div>
-            <div class="card-title-block">
-              <div class="card-title">Samninga portall</div>
-              <div class="card-desc">Þjónustusamningar og gildistími — fyrir starfsmenn og viðskiptavini</div>
-            </div>
-            <span class="status-badge status-dev"><span class="status-dot"></span>Í þróun</span>
-          </div>
-          <div class="card-body">
-            <div class="card-stats">
-              <div class="card-stat">
-                <div class="card-stat-value stat-indigo">11</div>
-                <div class="card-stat-label">Samtals</div>
-              </div>
-              <div class="card-stat">
-                <div class="card-stat-value stat-green">4</div>
-                <div class="card-stat-label">Virkir</div>
-              </div>
-              <div class="card-stat">
-                <div class="card-stat-value stat-orange">1</div>
-                <div class="card-stat-label">Renna út</div>
-              </div>
-            </div>
-            <ul class="card-features">
-              <li>Hvenær samningar renna út</li>
-              <li>Þjónustustjóri lætur vita viðskiptavin</li>
-              <li>Viðskiptavinir fá aðgang að sínum</li>
-            </ul>
-          </div>
-          <div class="card-footer">
-            <span style="font-size:12px;color:var(--gray);">Bíður Öryggisstjóra</span>
-          </div>
-        </div>
-
       </div>
     </div>
 
@@ -1470,17 +1281,12 @@ tr.q-skipped { opacity: .45; text-decoration: line-through; background: repeatin
                 onclick="showQuoteTab('analytics')">
           📊 Greining
         </button>
-        <button class="quote-tab" id="qtab-btn-compare"
-                role="tab" aria-selected="false" aria-controls="qtab-panel-compare"
-                onclick="showQuoteTab('compare')">
-          ⚖ Samanburður
-        </button>
       </div>
 
       <!-- ── FLIPASVÆÐI: Nýtt tilboð ─────────────────────── -->
       <div id="qtab-panel-form" role="tabpanel" aria-labelledby="qtab-btn-form">
   <!-- ═══════════════ TWO-PANEL LAYOUT ═══════════════ -->
-  <div style="display:grid;grid-template-columns:460px 1fr;gap:0;min-height:700px;border:1px solid var(--border-col);border-radius:14px;overflow:hidden;background:var(--surface);">
+  <div style="display:grid;grid-template-columns:minmax(520px, 1.1fr) minmax(420px, 1fr);gap:0;min-height:700px;border:1px solid var(--border-col);border-radius:14px;overflow:hidden;background:var(--surface);">
 
     <!-- ─────────────────── LEFT SIDEBAR ─────────────────── -->
     <div id="ql-sidebar" style="border-right:1px solid var(--border-col);overflow-y:auto;background:var(--surface);display:flex;flex-direction:column;">
@@ -1714,78 +1520,6 @@ tr.q-skipped { opacity: .45; text-decoration: line-through; background: repeatin
             </select>
           </div>
         </div>
-
-        <!-- Verðlagning -->
-        <div style="background:var(--surface2);border:1px solid var(--border-col);border-radius:10px;padding:12px 14px;">
-          <div style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px;">Verðlagning</div>
-          <div style="display:flex;flex-direction:column;gap:8px;">
-
-            <!-- Gjaldmiðill -->
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;align-items:center;">
-              <label style="font-size:11px;font-weight:600;color:var(--text-muted);">Gjaldmiðill</label>
-              <select id="ql-currency" onchange="setArrowCurrency(this.value)"
-                style="padding:5px 8px;border:1.5px solid var(--border-col);border-radius:6px;font-size:12px;background:var(--surface);color:var(--text);">
-                <option value="USD">USD – Bandaríkjadalur</option>
-                <option value="EUR">EUR – Evra</option>
-                <option value="GBP">GBP – Sterlingspund</option>
-                <option value="DKK">DKK – Danskar krónur</option>
-                <option value="ISK">ISK – Íslenskar krónur</option>
-              </select>
-            </div>
-
-            <!-- Gengi -->
-            <div style="display:grid;grid-template-columns:1fr auto auto;gap:6px;align-items:center;">
-              <label style="font-size:11px;font-weight:600;color:var(--text-muted);">Gengi (ISK)</label>
-              <input id="ql-gengi" type="number" min="0.01" step="0.01" value="138"
-                onchange="onGengisChange()" oninput="onGengisChange()"
-                style="width:80px;padding:5px 8px;border:1.5px solid var(--border-col);border-radius:6px;font-size:12px;background:var(--surface);color:var(--text);text-align:right;">
-              <button onclick="refreshGengi()" title="Uppfæra gengi úr stillingum"
-                style="padding:5px 8px;border:1.5px solid var(--border-col);border-radius:6px;background:var(--surface);color:var(--text-muted);font-size:12px;cursor:pointer;">↺</button>
-            </div>
-
-            <!-- Álagning % -->
-            <div style="display:grid;grid-template-columns:1fr auto;gap:6px;align-items:center;">
-              <label style="font-size:11px;font-weight:600;color:var(--text-muted);">Álagning (%)</label>
-              <input id="ql-markup" type="number" min="0" max="999" step="0.1" value="20"
-                onchange="recalcArrowLines()" oninput="recalcArrowLines()"
-                style="width:80px;padding:5px 8px;border:1.5px solid var(--border-col);border-radius:6px;font-size:12px;background:var(--surface);color:var(--text);text-align:right;">
-            </div>
-
-            <!-- Framlegð % -->
-            <div style="display:grid;grid-template-columns:1fr auto;gap:6px;align-items:center;">
-              <label style="font-size:11px;font-weight:600;color:var(--text-muted);">Framlegð (%)</label>
-              <input id="ql-margin" type="number" min="0" max="99.9" step="0.1" value="0"
-                onchange="recalcArrowLines()" oninput="recalcArrowLines()"
-                style="width:80px;padding:5px 8px;border:1.5px solid var(--border-col);border-radius:6px;font-size:12px;background:var(--surface);color:var(--text);text-align:right;">
-            </div>
-
-            <!-- Sendingarkostnaður % -->
-            <div style="display:grid;grid-template-columns:1fr auto;gap:6px;align-items:center;">
-              <label style="font-size:11px;font-weight:600;color:var(--text-muted);">Sendingarkostnaður (%)</label>
-              <input id="ql-shipping" type="number" min="0" max="100" step="0.1" value="0"
-                onchange="recalcArrowLines()" oninput="recalcArrowLines()"
-                style="width:80px;padding:5px 8px;border:1.5px solid var(--border-col);border-radius:6px;font-size:12px;background:var(--surface);color:var(--text);text-align:right;">
-            </div>
-
-            <!-- FX reference row -->
-            <div style="display:flex;gap:6px;flex-wrap:wrap;padding-top:6px;border-top:1px solid var(--border-col);">
-              <label style="font-size:11px;font-weight:600;color:var(--text-muted);width:100%;margin-bottom:2px;">Gengisgildi (ISK/einingu):</label>
-              <label style="font-size:11px;">USD <input id="fx-usd" type="number" value="138" min="0.01"
-                style="width:60px;padding:3px 5px;border:1.5px solid var(--border-col);border-radius:5px;font-size:11px;background:var(--surface);color:var(--text);"
-                onchange="syncGengiFromFX();recalcQuote()"></label>
-              <label style="font-size:11px;">EUR <input id="fx-eur" type="number" value="151" min="0.01"
-                style="width:60px;padding:3px 5px;border:1.5px solid var(--border-col);border-radius:5px;font-size:11px;background:var(--surface);color:var(--text);"
-                onchange="syncGengiFromFX();recalcQuote()"></label>
-              <label style="font-size:11px;">GBP <input id="fx-gbp" type="number" value="175" min="0.01"
-                style="width:60px;padding:3px 5px;border:1.5px solid var(--border-col);border-radius:5px;font-size:11px;background:var(--surface);color:var(--text);"
-                onchange="syncGengiFromFX();recalcQuote()"></label>
-              <label style="font-size:11px;">DKK <input id="fx-dkk" type="number" value="20" min="0.01"
-                style="width:60px;padding:3px 5px;border:1.5px solid var(--border-col);border-radius:5px;font-size:11px;background:var(--surface);color:var(--text);"
-                onchange="syncGengiFromFX();recalcQuote()"></label>
-            </div>
-          </div>
-        </div>
-
         <!-- Skilmálar -->
         <div style="background:var(--surface2);border:1px solid var(--border-col);border-radius:10px;padding:12px 14px;">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
@@ -1826,23 +1560,17 @@ tr.q-skipped { opacity: .45; text-decoration: line-through; background: repeatin
 
         
         <!-- ▼▼▼ TILBOÐ — TOOLBAR (skip-list, component-prices, versions) ▼▼▼ -->
-        <div id="q-toolbar" style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px;padding:8px;background:var(--surface2);border:1px solid var(--border-col);border-radius:8px;">
-          <button id="qtb-prices-btn" onclick="qToggleComponentPrices()" title="Sýna/fela verð á íhlutum"
-            style="padding:5px 10px;background:var(--surface);border:1.5px solid var(--border-col);border-radius:6px;font-size:11px;font-weight:700;cursor:pointer;color:var(--text);">
-            💰 Sýna verð á íhlutum
-          </button>
-          <button onclick="qOpenSkipList()" title="Sýna lista yfir sleppingar"
-            style="padding:5px 10px;background:var(--surface);border:1.5px solid var(--border-col);border-radius:6px;font-size:11px;font-weight:700;cursor:pointer;color:var(--text);">
-            🚫 Sýna Skip‑lista <span id="qtb-skip-count" style="display:none;background:var(--red);color:#fff;border-radius:10px;padding:1px 6px;font-size:10px;margin-left:4px;">0</span>
-          </button>
+        <div id="q-toolbar" style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:6px;padding:8px;background:var(--surface2);border:1px solid var(--border-col);border-radius:8px;">
+          <!-- Phase 7: 'Sýna verð á íhlutum', 'Sýna Skip-lista', 'Keyra Dell-reglur' fjarlægt úr UI.
+               Undirliggjandi föll (qToggleComponentPrices, qOpenSkipList, qApplyNormalizers)
+               eru áfram til staðar og keyra sjálfkrafa við Excel-innlestur. -->
           <button onclick="qOpenVersions()" title="Útgáfur tilboðs"
             style="padding:5px 10px;background:var(--surface);border:1.5px solid var(--border-col);border-radius:6px;font-size:11px;font-weight:700;cursor:pointer;color:var(--text);">
             🗂 Útgáfur <span id="qtb-ver-label" style="background:var(--indigo-light);color:var(--indigo);border-radius:10px;padding:1px 6px;font-size:10px;margin-left:4px;">v1.0</span>
           </button>
-          <button onclick="qApplyNormalizers()" title="Keyra sjálfvirka síun og sameiningu"
-            style="padding:5px 10px;background:var(--indigo-light);border:1.5px solid var(--indigo);border-radius:6px;font-size:11px;font-weight:700;cursor:pointer;color:var(--indigo);">
-            ✨ Keyra Dell‑reglur
-          </button>
+          <span style="flex:1;min-width:8px;"></span>
+          <div id="q-class-summary" title="Sjálfvirk flokkun á vörulínum"
+               style="display:flex;gap:4px;flex-wrap:wrap;align-items:center;font-size:10px;"></div>
         </div>
         <!-- ▲▲▲ TILBOÐ — TOOLBAR ▲▲▲ -->
         <!-- Add line button -->
@@ -1863,7 +1591,7 @@ tr.q-skipped { opacity: .45; text-decoration: line-through; background: repeatin
                 <th style="min-width:50px;text-align:center;">Magn</th>
                 <th style="min-width:100px;text-align:right;">Einingaverð</th>
                 <th style="min-width:100px;text-align:right;">Samtals</th>
-                <th style="width:28px;"></th>
+                <th style="width:48px;min-width:48px;text-align:center;font-size:10px;color:var(--text-muted);">Eyða</th>
               </tr>
             </thead>
             <tbody id="quote-tbody"></tbody>
@@ -1894,6 +1622,74 @@ tr.q-skipped { opacity: .45; text-decoration: line-through; background: repeatin
 
     <!-- ─────────────────── RIGHT PREVIEW ─────────────────── -->
     <div style="background:#e8e8e8;overflow-y:auto;display:flex;flex-direction:column;">
+
+      <!-- ▼ Verðlagning (efst — hoisted úr info-flipa) ▼ -->
+      <div id="qlt-pricing-banner" style="background:var(--surface);border-bottom:1px solid var(--border-col);padding:10px 16px;flex-shrink:0;">
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+          <div style="font-size:11px;font-weight:800;color:var(--indigo);text-transform:uppercase;letter-spacing:.6px;white-space:nowrap;">💱 Verðlagning</div>
+
+          <label style="display:flex;align-items:center;gap:4px;font-size:11px;font-weight:600;color:var(--text-muted);">
+            Gjaldm.
+            <select id="ql-currency" onchange="setArrowCurrency(this.value)"
+              style="padding:3px 6px;border:1.5px solid var(--border-col);border-radius:5px;font-size:11px;background:var(--surface);color:var(--text);">
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+              <option value="GBP">GBP</option>
+              <option value="DKK">DKK</option>
+              <option value="ISK">ISK</option>
+            </select>
+          </label>
+
+          <label style="display:flex;align-items:center;gap:4px;font-size:11px;font-weight:600;color:var(--text-muted);">
+            Gengi
+            <input id="ql-gengi" type="number" min="0.01" step="0.01" value="138"
+              onchange="onGengisChange()" oninput="onGengisChange()"
+              style="width:62px;padding:3px 6px;border:1.5px solid var(--border-col);border-radius:5px;font-size:11px;background:var(--surface);color:var(--text);text-align:right;">
+            <button onclick="refreshGengi()" title="Uppfæra gengi úr stillingum"
+              style="padding:2px 6px;border:1.5px solid var(--border-col);border-radius:5px;background:var(--surface);color:var(--text-muted);font-size:11px;cursor:pointer;">↺</button>
+          </label>
+
+          <label style="display:flex;align-items:center;gap:4px;font-size:11px;font-weight:600;color:var(--text-muted);">
+            Álagn.%
+            <input id="ql-markup" type="number" min="0" max="999" step="0.1" value="20"
+              onchange="recalcArrowLines()" oninput="recalcArrowLines()"
+              style="width:58px;padding:3px 6px;border:1.5px solid var(--border-col);border-radius:5px;font-size:11px;background:var(--surface);color:var(--text);text-align:right;">
+          </label>
+
+          <label style="display:flex;align-items:center;gap:4px;font-size:11px;font-weight:600;color:var(--text-muted);">
+            Framl.%
+            <input id="ql-margin" type="number" min="0" max="99.9" step="0.1" value="0"
+              onchange="recalcArrowLines()" oninput="recalcArrowLines()"
+              style="width:58px;padding:3px 6px;border:1.5px solid var(--border-col);border-radius:5px;font-size:11px;background:var(--surface);color:var(--text);text-align:right;">
+          </label>
+
+          <label style="display:flex;align-items:center;gap:4px;font-size:11px;font-weight:600;color:var(--text-muted);">
+            Sending%
+            <input id="ql-shipping" type="number" min="0" max="100" step="0.1" value="0"
+              onchange="recalcArrowLines()" oninput="recalcArrowLines()"
+              style="width:58px;padding:3px 6px;border:1.5px solid var(--border-col);border-radius:5px;font-size:11px;background:var(--surface);color:var(--text);text-align:right;">
+          </label>
+
+          <details style="margin-left:auto;">
+            <summary style="cursor:pointer;font-size:10px;color:var(--text-muted);font-weight:600;list-style:none;">FX ▾</summary>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;padding-top:6px;">
+              <label style="font-size:10px;">USD <input id="fx-usd" type="number" value="138" min="0.01"
+                style="width:56px;padding:2px 4px;border:1.5px solid var(--border-col);border-radius:4px;font-size:10px;background:var(--surface);color:var(--text);"
+                onchange="syncGengiFromFX();recalcQuote()"></label>
+              <label style="font-size:10px;">EUR <input id="fx-eur" type="number" value="151" min="0.01"
+                style="width:56px;padding:2px 4px;border:1.5px solid var(--border-col);border-radius:4px;font-size:10px;background:var(--surface);color:var(--text);"
+                onchange="syncGengiFromFX();recalcQuote()"></label>
+              <label style="font-size:10px;">GBP <input id="fx-gbp" type="number" value="175" min="0.01"
+                style="width:56px;padding:2px 4px;border:1.5px solid var(--border-col);border-radius:4px;font-size:10px;background:var(--surface);color:var(--text);"
+                onchange="syncGengiFromFX();recalcQuote()"></label>
+              <label style="font-size:10px;">DKK <input id="fx-dkk" type="number" value="20" min="0.01"
+                style="width:56px;padding:2px 4px;border:1.5px solid var(--border-col);border-radius:4px;font-size:10px;background:var(--surface);color:var(--text);"
+                onchange="syncGengiFromFX();recalcQuote()"></label>
+            </div>
+          </details>
+        </div>
+      </div>
+      <!-- ▲ Verðlagning ▲ -->
 
       <!-- Preview toolbar -->
       <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:var(--surface);border-bottom:1px solid var(--border-col);flex-shrink:0;flex-wrap:wrap;gap:8px;">
@@ -2097,78 +1893,6 @@ tr.q-skipped { opacity: .45; text-decoration: line-through; background: repeatin
       </div>
 
       </div>
-
-    <div id="qtab-panel-compare" role="tabpanel" aria-labelledby="qtab-btn-compare" style="display:none;">
-      <div style="padding:24px 28px;">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;flex-wrap:wrap;gap:12px;">
-          <div>
-            <h1 style="margin:0 0 6px 0;font-size:24px;color:var(--text);">⚖ Tilboðssamanburður</h1>
-            <p style="margin:0;color:var(--text-muted);font-size:13px;">Hlaðið inn 2 eða fleiri tilboðum (xlsx, csv, pdf) til að bera saman verð, magn og vörulínur.</p>
-          </div>
-          <div style="display:flex;gap:8px;">
-            <button onclick="cmpExport()" id="cmp-export-btn" disabled
-              style="padding:8px 16px;background:white;color:#0891b2;border:2px solid #0891b2;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;opacity:.5;">
-              📥 Export .xlsx
-            </button>
-            <button onclick="cmpClear()"
-              style="padding:8px 16px;background:none;color:var(--text-muted);border:1.5px solid var(--border-col);border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;">
-              🗑 Hreinsa allt
-            </button>
-          </div>
-        </div>
-
-        <!-- Upload area -->
-        <div id="cmp-drop-zone" style="border:3px dashed var(--indigo);border-radius:14px;padding:40px 20px;text-align:center;background:var(--indigo-light);transition:all .2s;cursor:pointer;margin-bottom:20px;"
-          onclick="document.getElementById('cmp-file-input').click()"
-          ondragover="event.preventDefault();this.style.background='#e0e7ff';this.style.borderColor='#4338ca';"
-          ondragleave="this.style.background='var(--indigo-light)';this.style.borderColor='var(--indigo)';"
-          ondrop="cmpHandleDrop(event); this.style.background='var(--indigo-light)'; this.style.borderColor='var(--indigo)';">
-          <div style="font-size:48px;margin-bottom:12px;">📁</div>
-          <div style="font-size:16px;font-weight:700;color:var(--indigo);margin-bottom:6px;">Dragðu inn tilboð hér eða smelltu til að velja</div>
-          <div style="font-size:12px;color:var(--text-muted);">Stuðningur: .xlsx, .xls, .csv, .pdf · Hámark: 10 skjöl</div>
-          <input id="cmp-file-input" type="file" multiple
-            accept=".xlsx,.xls,.csv,.pdf,application/pdf,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-            style="display:none;"
-            onchange="cmpHandleFiles(this.files); this.value='';">
-        </div>
-
-        <!-- Source files list -->
-        <div id="cmp-sources" style="display:none;margin-bottom:20px;">
-          <div style="font-size:13px;font-weight:700;color:var(--text-muted);margin-bottom:10px;">UPPHLEÐD SKJÖL</div>
-          <div id="cmp-sources-list" style="display:flex;flex-direction:column;gap:8px;"></div>
-        </div>
-
-        <!-- Summary stats -->
-        <div id="cmp-summary" style="display:none;margin-bottom:20px;"></div>
-
-        <!-- Comparison result sections -->
-        <div id="cmp-result" style="display:none;">
-          <!-- Sameiginlegar -->
-          <div style="margin-bottom:24px;">
-            <div style="font-size:15px;font-weight:800;color:#15803d;margin-bottom:10px;display:flex;align-items:center;gap:8px;">
-              <span style="background:#dcfce7;padding:3px 10px;border-radius:20px;font-size:12px;">✓ SAMEIGINLEGAR</span>
-              <span id="cmp-common-count" style="color:var(--text-muted);font-weight:600;font-size:12px;"></span>
-            </div>
-            <div id="cmp-common-wrap" style="background:var(--surface);border:1px solid var(--border-col);border-radius:10px;overflow-x:auto;"></div>
-          </div>
-
-          <!-- Aðeins í X -->
-          <div id="cmp-unique-wrap"></div>
-        </div>
-
-        <!-- Mapping modal -->
-        <div id="cmp-mapping-overlay" class="ai-overlay" style="display:none;z-index:2800;"
-          onclick="if(event.target===this)cmpCloseMapping()">
-          <div style="background:var(--surface);border-radius:14px;padding:24px 28px;width:560px;max-width:94vw;max-height:86vh;overflow-y:auto;box-shadow:0 8px 40px rgba(0,0,0,.3);">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
-              <div style="font-size:16px;font-weight:800;color:var(--indigo);">⚙ Leiðrétta mapping</div>
-              <button onclick="cmpCloseMapping()" style="background:none;border:none;font-size:18px;cursor:pointer;color:var(--text-muted);">✕</button>
-            </div>
-            <div id="cmp-mapping-body"></div>
-          </div>
-        </div>
-      </div>
-    </div>
 
 
     </div>
@@ -4566,29 +4290,75 @@ tr.q-skipped { opacity: .45; text-decoration: line-through; background: repeatin
   // ══════════════════════════════════════════════════════
   //  TEYMI MÓDÚL
   // ══════════════════════════════════════════════════════
+  // ── Demo starfsmenn (virkt í demoMode) ───────────────────────
+  // Hvert entity hefur isDemo:true til aðgreiningar frá raunverulegum gögnum
   const DEMO_EMPLOYEES = [
-    { name: 'Anna Sigurðardóttir',  email: 'anna@advania.is',    dept: 'Sala',        role: 'Söluráðgjafi',  status: 'office'   },
-    { name: 'Björn Helgason',       email: 'bjorn@advania.is',   dept: 'Sala',        role: 'Söluráðgjafi',  status: 'remote'   },
-    { name: 'Dagný Kristjánsdóttir',email: 'dagny@advania.is',   dept: 'Sala',        role: 'Söluráðgjafi',  status: 'office'   },
-    { name: 'Einar Magnússon',      email: 'einar@advania.is',   dept: 'Sala',        role: 'Söluráðgjafi',  status: 'vacation' },
-    { name: 'Fanný Björnsdóttir',   email: 'fanny@advania.is',   dept: 'Vörustjórnun',role: 'Vörustjóri',    status: 'office'   },
-    { name: 'Gunnar Sigurbjörnsson', email: 'gunnar@advania.is', dept: 'Vörustjórnun',role: 'Vörustjóri',    status: 'office'   },
-    { name: 'Helga Ólafsdóttir',    email: 'helga@advania.is',   dept: 'Vörustjórnun',role: 'Vörustjóri',    status: 'remote'   },
-    { name: 'Íris Jónsdóttir',      email: 'iris@advania.is',    dept: 'Stjórnun',    role: 'Stjórnandi',    status: 'office'   },
-    { name: 'Jón Sigurðsson',       email: 'jon@advania.is',     dept: 'Stjórnun',    role: 'Stjórnandi',    status: 'office'   },
-    { name: 'Katrín Benediktsdóttir',email: 'katrin@advania.is', dept: 'Stjórnun',    role: 'Stjórnandi',    status: 'remote'   },
-    { name: 'Logi Einarsson',       email: 'logi@advania.is',    dept: 'Innkaup',     role: 'Innkaup',       status: 'office'   },
-    { name: 'María Halldórsdóttir', email: 'maria@advania.is',   dept: 'Innkaup',     role: 'Innkaup',       status: 'sick'     },
-    { name: 'Njáll Sigurjónsson',   email: 'njall@advania.is',   dept: 'Innkaup',     role: 'Innkaup',       status: 'office'   },
-    { name: 'Oddný Pálsdóttir',     email: 'oddny@advania.is',   dept: 'Sala',        role: 'Söluráðgjafi',  status: 'office'   },
-    { name: 'Páll Kristinsson',     email: 'pall@advania.is',    dept: 'Vörustjórnun',role: 'Vörustjóri',    status: 'office'   },
+    { name: 'Anna Rún Jónsdóttir',       email: 'anna.run@advania.is',      dept: 'Sala',         role: 'Söluráðgjafi',  status: 'office',   isDemo: true },
+    { name: 'Björn Ingi Sigurðsson',     email: 'bjorn.ingi@advania.is',    dept: 'Sala',         role: 'Söluráðgjafi',  status: 'remote',   isDemo: true },
+    { name: 'Elín Margrét Þórðardóttir', email: 'elin.margret@advania.is',  dept: 'Vörustjórnun', role: 'Vörustjóri',    status: 'office',   isDemo: true },
+    { name: 'Gunnar Freyr Ólafsson',     email: 'gunnar.freyr@advania.is',  dept: 'Vörustjórnun', role: 'Vörustjóri',    status: 'vacation', isDemo: true },
+    { name: 'Hildur Sara Magnúsdóttir',  email: 'hildur.sara@advania.is',   dept: 'Innkaup',      role: 'Innkaup',       status: 'office',   isDemo: true },
+    { name: 'Kristján Ari Einarsson',    email: 'kristjan.ari@advania.is',  dept: 'Stjórnun',     role: 'Stjórnandi',    status: 'remote',   isDemo: true }
   ];
 
+  // ── demoMode feature flag ────────────────────────────────────
+  //   Priority: ?demo=1|0 URL param  >  localStorage  >  default(true)
+  //   Production build should ship with default=false
+  window.demoMode = (function(){
+    try {
+      var qs = new URLSearchParams(window.location.search);
+      if (qs.has('demo')) {
+        var v = qs.get('demo') === '1' || qs.get('demo') === 'true';
+        lsSet('demoMode', v);
+        return v;
+      }
+      var stored = lsGet('demoMode', null);
+      if (stored !== null) return stored;
+      // default: true for this evaluation build
+      return true;
+    } catch(e){ return true; }
+  })();
+
+  // ── Auto-seed demo employees (ONLY when demoMode=true AND nothing saved) ──
+  //   Also: migrate old pre-Phase-6 demo set (15 names, no isDemo marker)
+  //   to the new 6-name demo set when demoMode is active.
   let employees = lsGet('employees', null);
-  if (!employees) {
-    employees = DEMO_EMPLOYEES;
-    lsSet('employees', employees);
+  var DEMO_SET_VERSION = 'phase6-6names';
+  var storedDemoVer = lsGet('demoEmployeeSetVersion', null);
+  function looksLikeOldDemoSet(list){
+    if (!Array.isArray(list) || !list.length) return false;
+    // Old seed had 15 entries, all @advania.is, none flagged isDemo
+    var allOld = list.every(function(e){
+      return e && e.email && /@advania\.is$/.test(e.email) && !e.isDemo;
+    });
+    return allOld && list.length >= 10;
   }
+  if (window.demoMode && storedDemoVer !== DEMO_SET_VERSION && looksLikeOldDemoSet(employees)) {
+    // Migrate: replace legacy demo set with new 6-name set
+    employees = DEMO_EMPLOYEES.slice();
+    lsSet('employees', employees);
+    lsSet('demoEmployeeSetVersion', DEMO_SET_VERSION);
+  } else if (!employees || employees.length === 0) {
+    if (window.demoMode) {
+      employees = DEMO_EMPLOYEES.slice();
+      lsSet('employees', employees);
+      lsSet('demoEmployeeSetVersion', DEMO_SET_VERSION);
+    } else {
+      employees = [];
+    }
+  }
+
+  // Helper: clear ALL demo entities (called by dev console or future admin button)
+  window.clearDemoData = function(){
+    try {
+      var emps = lsGet('employees', []) || [];
+      var real = emps.filter(function(e){ return !e.isDemo; });
+      lsSet('employees', real);
+      if (typeof renderTeymi === 'function') renderTeymi();
+      console.info('Demo data cleared. Real employees kept:', real.length);
+    } catch(e){ console.error(e); }
+    return true;
+  };
   let editingEmployeeIdx = -1;
 
   const STATUS_META = {
@@ -4843,7 +4613,7 @@ tr.q-skipped { opacity: .45; text-decoration: line-through; background: repeatin
         '<td style="text-align:center;"><input type="number" value="' + (line.qty||1) + '" min="1" onchange="quoteLines[' + i + '].qty=+this.value;renderQuoteLines()" style="' + IS + 'width:56px;text-align:center;"></td>' +
         '<td style="text-align:right;"><input type="number" value="' + unitSale.toFixed(0) + '" min="0" step="1" onchange="quoteLines[' + i + '].salePrice=+this.value;renderQuoteLines()" style="' + IS + 'width:110px;text-align:right;" placeholder="0"></td>' +
         '<td style="text-align:right;font-size:13px;font-weight:800;color:var(--purple);white-space:nowrap;padding-right:8px;">' + fmtISK(lineTot) + '</td>' +
-        '<td><button onclick="quoteLines.splice(' + i + ',1);renderQuoteLines()" style="background:none;border:none;color:var(--red);cursor:pointer;font-size:16px;" title="Eyða línu">✕</button></td>';
+        '<td style="text-align:center;padding:2px;"><button onclick="quoteLines.splice(' + i + ',1);renderQuoteLines()" style="background:#fef2f2;border:1.5px solid var(--red);color:var(--red);cursor:pointer;font-size:13px;font-weight:700;width:28px;height:28px;border-radius:6px;line-height:1;padding:0;" title="Eyða línu">✕</button></td>';
 
       tbody.appendChild(tr);
     });
@@ -5487,8 +5257,10 @@ tr.q-skipped { opacity: .45; text-decoration: line-through; background: repeatin
 
   // ── Quote tab switching ────────────────────────────────────────
   function showQuoteTab(tab) {
-    const panels = { form: 'qtab-panel-form', analytics: 'qtab-panel-analytics', compare: 'qtab-panel-compare' };
-    const btns   = { form: 'qtab-btn-form',   analytics: 'qtab-btn-analytics',   compare: 'qtab-btn-compare'   };
+    // 'compare' tab removed in Phase 5 — redirect to 'form' if referenced
+    if (tab === 'compare') tab = 'form';
+    const panels = { form: 'qtab-panel-form', analytics: 'qtab-panel-analytics' };
+    const btns   = { form: 'qtab-btn-form',   analytics: 'qtab-btn-analytics'   };
     Object.keys(panels).forEach(function(t) {
       const panel = document.getElementById(panels[t]);
       const btn   = document.getElementById(btns[t]);
@@ -5499,7 +5271,6 @@ tr.q-skipped { opacity: .45; text-decoration: line-through; background: repeatin
       btn.setAttribute('aria-selected', active ? 'true' : 'false');
     });
     if (tab === 'analytics') renderAnalytics();
-    if (tab === 'compare') { try { cmpRenderAll && cmpRenderAll(); } catch(e){} }
   }
 
   // ══════════════════════════════════════════════════════
@@ -6559,11 +6330,7 @@ tr.q-skipped { opacity: .45; text-decoration: line-through; background: repeatin
 
   function showPage(id, btn) {
     // Legacy redirects: samanburdur and partner are merged/removed
-    if (id === 'samanburdur') {
-      showPage('tilbod', null);
-      setTimeout(function(){ try { showQuoteTab('compare'); } catch(e){} }, 0);
-      return;
-    }
+    if (id === 'samanburdur') { showPage('tilbod', null); return; }
     if (id === 'partner') { showPage('dashboard', null); return; }
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
@@ -9587,12 +9354,17 @@ function otSendMailto() {
     if (saved==='1') window.qShowPrices = true;
   } catch(e){}
 
-  // ─── Line classification ───
+  // ─── Line classification (CPU, RAM, HBA, NIC, Storage, PSU, Support) ───
   function classify(desc){
     var d = (desc||'').toLowerCase();
+    // HBA first (Fibre Channel treated as HBA, NOT NIC)
     if (/fiber\s+channel|fibre\s+channel|\bfc\s*(kort|card)\b|\bhba\b/.test(d)) return 'hba';
-    if (/\bintel\s+xeon|\bamd\s+epyc|\bprocessor\b|\bcpu\b|\börgjörvi\b|\borgjorvi\b/.test(d)) return 'cpu';
+    if (/\bintel\s+xeon|\bamd\s+epyc|\bprocessor\b|\bcpu\b|örgjörvi|orgjorvi/.test(d)) return 'cpu';
     if (/\brdimm\b|\budimm\b|\bmemory\b|\bram\b|vinnsluminn/.test(d)) return 'ram';
+    // Storage — HDD / SSD / NVMe / SAS drive / disk
+    if (/\bnvme\b|\bssd\b|\bhdd\b|\bsas\b|\bsata\b|hard\s*drive|hard\s*disk|solid\s*state|diskur|diska/.test(d)) return 'storage';
+    // NIC — network interface card (but NOT Fibre Channel — caught above)
+    if (/\bnic\b|network\s+(interface|adapter|card|daughter)|ethernet|\b(10|25|40|100)\s*gbe\b|broadcom\s+57|mellanox\s+connectx|intel\s+x(7|8|9|5)\d{2}|netkort/.test(d)) return 'nic';
     if (/power\s+supply|\bpsu\b|spennugjafi/.test(d)) return 'psu';
     if (/prosupport|pro\s+support|next\s+business\s+day/.test(d)) return 'support';
     return '';
@@ -9920,6 +9692,209 @@ function otSendMailto() {
 
 })();
 /* ═══ END TILBOÐ NORMALIZERS ═══ */
+
+
+/* ═══ DEMO DATA + TOAST UTILITY (Phase 5) ═══ */
+(function(){
+  // ── Toast utility (top-right, auto-dismiss) ──────────────────
+  function ensureToastHost(){
+    var h = document.getElementById('app-toast-host');
+    if (h) return h;
+    h = document.createElement('div');
+    h.id = 'app-toast-host';
+    h.style.cssText = 'position:fixed;top:76px;right:20px;z-index:5500;display:flex;flex-direction:column;gap:8px;pointer-events:none;';
+    document.body.appendChild(h);
+    return h;
+  }
+  window.showToast = function(msg, kind){
+    kind = kind || 'info';
+    var colors = {
+      info:    { bg:'#eef2ff', bd:'#6366f1', fg:'#3730a3', icon:'ℹ️' },
+      success: { bg:'#dcfce7', bd:'#16a34a', fg:'#15803d', icon:'✅' },
+      warn:    { bg:'#fef3c7', bd:'#d97706', fg:'#92400e', icon:'⚠️' },
+      error:   { bg:'#fee2e2', bd:'#dc2626', fg:'#991b1b', icon:'❌' }
+    };
+    var c = colors[kind] || colors.info;
+    var host = ensureToastHost();
+    var t = document.createElement('div');
+    t.style.cssText = 'pointer-events:auto;min-width:240px;max-width:420px;background:'+c.bg+';border-left:4px solid '+c.bd+';color:'+c.fg+';padding:10px 14px;border-radius:8px;font-size:13px;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.15);transform:translateX(110%);transition:transform .28s ease;';
+    t.innerHTML = '<span style="margin-right:8px;">'+c.icon+'</span>'+String(msg).replace(/[<>]/g,'');
+    host.appendChild(t);
+    requestAnimationFrame(function(){ t.style.transform='translateX(0)'; });
+    setTimeout(function(){
+      t.style.transform='translateX(110%)';
+      setTimeout(function(){ if (t.parentNode) t.parentNode.removeChild(t); }, 320);
+    }, 3800);
+  };
+
+  // ── Demo data generator ─────────────────────────────────────
+  //   Builds a COMPLETE demo quote that exercises every normalizer:
+  //     SECTION 1 — Server (CPU, RAM, PSU, HBA/FC cards)
+  //     SECTION 2 — Dell junk lines (must be auto-skipped)
+  //     SECTION 3 — Licences
+  //     SECTION 4 — ProSupport
+  //   CPU/RAM are INTENTIONALLY different SKUs so the merge stays per‑SKU.
+  function isoPlusDays(n){
+    var d = new Date(); d.setDate(d.getDate()+n);
+    return d.toISOString().slice(0,10);
+  }
+  function makeQuoteNum(){
+    var d = new Date();
+    var yy = d.getFullYear();
+    var rnd = Math.floor(1000 + Math.random()*9000);
+    return 'T-' + yy + '-' + rnd;
+  }
+
+  function demoLines(){
+    // SECTION 1 — Server (realistic Dell PowerEdge R760 config)
+    // CPU: two separate SKUs — per-SKU merge means 2× CPU-A + 1× CPU-B stays SEPARATE
+    // RAM: two separate SKUs for the same reason
+    var lines = [
+      // SERVER BASE
+      { sku:'210-BGMN', desc:'PowerEdge R760 Server',                 qty:1, purchasePrice:3850, currency:'USD', markup:18, shipping:5, margin:0, fxOverride:null, fxManual:false, _section:'Server' },
+      // CPU — per‑SKU (never merge across different SKUs)
+      { sku:'338-CKWH', desc:'Intel Xeon Gold 6548Y+ 2.5G 32C/64T',   qty:1, purchasePrice:2180, currency:'USD', markup:18, shipping:0, margin:0, fxOverride:null, fxManual:false, _section:'CPU' },
+      { sku:'338-CKWH', desc:'Intel Xeon Gold 6548Y+ 2.5G 32C/64T',   qty:1, purchasePrice:2180, currency:'USD', markup:18, shipping:0, margin:0, fxOverride:null, fxManual:false, _section:'CPU' },
+      // RAM — per‑SKU (these two should stay SEPARATE even though both are RAM)
+      { sku:'370-AGZY', desc:'64GB RDIMM 4800MT/s Dual Rank',          qty:4, purchasePrice:395, currency:'USD', markup:18, shipping:0, margin:0, fxOverride:null, fxManual:false, _section:'RAM' },
+      { sku:'370-AGZY', desc:'64GB RDIMM 4800MT/s Dual Rank',          qty:2, purchasePrice:395, currency:'USD', markup:18, shipping:0, margin:0, fxOverride:null, fxManual:false, _section:'RAM' },
+      { sku:'370-BBNZ', desc:'32GB RDIMM 4800MT/s Single Rank',        qty:2, purchasePrice:220, currency:'USD', markup:18, shipping:0, margin:0, fxOverride:null, fxManual:false, _section:'RAM' },
+      // PSU — will be transformed ("Dual, Redundant(1+1)" → text stripped, qty forced to 2)
+      { sku:'450-ALOR', desc:'PSU 1400W Dual, Redundant(1+1) Hot-Plug', qty:1, purchasePrice:295, currency:'USD', markup:15, shipping:0, margin:0, fxOverride:null, fxManual:false, _section:'PSU' },
+      // FC / HBA — will be classified as HBA
+      { sku:'406-BBPC', desc:'Emulex LPe35002 Dual Port 32Gb Fibre Channel HBA', qty:2, purchasePrice:1180, currency:'USD', markup:20, shipping:0, margin:0, fxOverride:null, fxManual:false, _section:'HBA' },
+
+      // SECTION 2 — Dell junk (MUST auto-skip)
+      { sku:'340-CUSZ', desc:'Order Configuration Shipbox Label',      qty:1, purchasePrice:0, currency:'USD', markup:0, shipping:0, margin:0, fxOverride:null, fxManual:false, _section:'SKIP' },
+      { sku:'389-DYHE', desc:'Dell Luggage Tag',                        qty:1, purchasePrice:0, currency:'USD', markup:0, shipping:0, margin:0, fxOverride:null, fxManual:false, _section:'SKIP' },
+      { sku:'800-BBDM', desc:'UEFI BIOS Boot Mode',                     qty:1, purchasePrice:0, currency:'USD', markup:0, shipping:0, margin:0, fxOverride:null, fxManual:false, _section:'SKIP' },
+      { sku:'340-BLVJ', desc:'PowerEdge Shipping',                      qty:1, purchasePrice:0, currency:'USD', markup:0, shipping:0, margin:0, fxOverride:null, fxManual:false, _section:'SKIP' },
+      { sku:'350-BBXS', desc:'Asset Tag',                               qty:1, purchasePrice:0, currency:'USD', markup:0, shipping:0, margin:0, fxOverride:null, fxManual:false, _section:'SKIP' },
+      { sku:'412-AAPF', desc:'Heatsink for 2 CPU Configuration',        qty:2, purchasePrice:0, currency:'USD', markup:0, shipping:0, margin:0, fxOverride:null, fxManual:false, _section:'SKIP' },
+      { sku:'750-DUMMY',desc:'6400MT/s RDIMMs (placeholder line)',      qty:0, purchasePrice:0, currency:'USD', markup:0, shipping:0, margin:0, fxOverride:null, fxManual:false, _section:'SKIP' },
+
+      // SECTION 3 — Licences
+      { sku:'634-BYLD', desc:'Windows Server 2022 Standard 16‑Core',    qty:1, purchasePrice:760, currency:'USD', markup:12, shipping:0, margin:0, fxOverride:null, fxManual:false, _section:'Licence' },
+      { sku:'VMW-VSE',  desc:'VMware vSphere Enterprise Plus 1CPU (1y)',qty:2, purchasePrice:4300, currency:'USD', markup:12, shipping:0, margin:0, fxOverride:null, fxManual:false, _section:'Licence' },
+
+      // SECTION 4 — ProSupport (will be transformed "36 Måned(er)" → "3 ár")
+      { sku:'709-BBNY', desc:'ProSupport 4HR Mission Critical 36 Måned(er)', qty:1, purchasePrice:1850, currency:'USD', markup:10, shipping:0, margin:0, fxOverride:null, fxManual:false, _section:'Support' },
+    ];
+    // Seed salePrice so line totals render immediately
+    lines.forEach(function(l){
+      if (l.purchasePrice > 0) {
+        var fx = 140; // fallback IS-ISK/USD rate for demo purposes
+        l.salePrice = Math.round(l.purchasePrice * fx * (1 + (l.markup||0)/100) * (1 + (l.shipping||0)/100));
+      } else {
+        l.salePrice = 0;
+      }
+    });
+    return lines;
+  }
+
+  window.loadDemoData = function(){
+    try {
+      // Populate customer / project / quote header fields
+      var set = function(id, v){ var el=document.getElementById(id); if (el) el.value = v; };
+      var cust = 'Demo Heilbrigðisstofnun ehf.';
+      var proj = 'Gagnavers‑uppfærsla 2026 — Fasi 1';
+      var qnum = (typeof makeQuoteNum==='function') ? makeQuoteNum() : ('T-'+new Date().getFullYear()+'-'+Math.floor(1000+Math.random()*9000));
+      set('q-num',      qnum);
+      set('q-customer', cust);
+      set('q-contact',  'Anna Jónsdóttir · anna@demo-heilbr.is');
+      set('q-project',  proj);
+      set('q-valid',    isoPlusDays(30));
+      set('q-seller',   (typeof currentUser!=='undefined' && currentUser) ? (currentUser.name||'Demo Söluráðgjafi') : 'Demo Söluráðgjafi');
+
+      // Load lines and run normalizers
+      window.quoteLines = demoLines();
+      try { if (typeof qApplyNormalizers==='function') qApplyNormalizers(); } catch(e){}
+      try { if (typeof renderQuoteLines==='function') renderQuoteLines(); } catch(e){}
+      try { if (typeof recalcQuote==='function') recalcQuote(); } catch(e){}
+
+      // Track event + notify
+      try { if (typeof trackEvent==='function') trackEvent('DemoDataLoaded', { lines: window.quoteLines.length }); } catch(e){}
+      try {
+        if (window.notifAdd) window.notifAdd('tilbod','success',
+          { title:'Sýnigögn hlaðin', detail: qnum + ' · ' + cust + ' · ' + (window.quoteLines||[]).length + ' línur' },
+          { source:'demo-data', scope:'self' });
+        if (window.notifRenderBadges) window.notifRenderBadges();
+      } catch(e){}
+
+      showToast('Sýnigögn hlaðin – demo tilboð tilbúið','success');
+    } catch (err) {
+      console.error('loadDemoData error', err);
+      showToast('Villa við hleðslu sýnigagna: ' + (err && err.message || err), 'error');
+    }
+  };
+
+  // Expose for menu/keyboard shortcuts
+  window.qDemoLines = demoLines;
+})();
+/* ═══ END DEMO DATA + TOAST ═══ */
+
+
+/* ═══ PHASE 6 — CLASSIFICATION SUMMARY + DEV DEMO SEED ═══ */
+(function(){
+  // ── Classification summary widget ─────────────────────────────
+  //   Renders count pills for each category currently present in quoteLines.
+  //   Called automatically from renderQuoteLines wrapper + qApplyNormalizers.
+  function renderClassSummary(){
+    var host = document.getElementById('q-class-summary');
+    if (!host) return;
+    var lines = window.quoteLines || [];
+    if (!lines.length) { host.innerHTML = ''; return; }
+    var counts = { cpu:0, ram:0, nic:0, hba:0, storage:0, psu:0, support:0, other:0 };
+    lines.forEach(function(l){
+      var c = (window.qClassifyLine ? window.qClassifyLine(l.desc) : '') || 'other';
+      counts[c] = (counts[c]||0) + (+l.qty||1);
+    });
+    var labels = {
+      cpu:'CPU', ram:'RAM', nic:'NIC', hba:'HBA',
+      storage:'Geymsla', psu:'PSU', support:'Support', other:'Annað'
+    };
+    var html = '';
+    Object.keys(counts).forEach(function(k){
+      if (!counts[k]) return;
+      html += '<span class="q-cat-pill '+k+'" style="padding:2px 7px;border-radius:10px;font-weight:700;font-size:10px;">'+labels[k]+': '+counts[k]+'</span>';
+    });
+    host.innerHTML = html;
+  }
+  window.qRenderClassSummary = renderClassSummary;
+
+  // Install render hook
+  (function installHook(){
+    if (typeof window.renderQuoteLines !== 'function') {
+      return setTimeout(installHook, 30);
+    }
+    var prev = window.renderQuoteLines;
+    window.renderQuoteLines = function(){
+      var r = prev.apply(this, arguments);
+      try { renderClassSummary(); } catch(e){}
+      return r;
+    };
+  })();
+
+  // ── Dev-only demo-quote seed (NO UI button) ──────────────────
+  //   Accessible via browser console: __seedDemoQuote()
+  //   Auto-runs when ?demo=1&seed=quote is in URL
+  window.__seedDemoQuote = function(){
+    if (!window.demoMode) { console.warn('demoMode is off — not seeding'); return false; }
+    if (typeof window.loadDemoData !== 'function') { console.warn('loadDemoData not available'); return false; }
+    window.loadDemoData();
+    return true;
+  };
+  try {
+    var qs = new URLSearchParams(window.location.search);
+    if (qs.get('seed') === 'quote' && window.demoMode) {
+      // Defer until DOM ready
+      document.addEventListener('DOMContentLoaded', function(){
+        setTimeout(function(){ try { window.__seedDemoQuote(); } catch(e){} }, 300);
+      });
+    }
+  } catch(e){}
+})();
+/* ═══ END PHASE 6 ═══ */
 
 </script>
 <!-- ═══════════ END OUTLOOK TEMPLATE PICKER ═══════════ -->
