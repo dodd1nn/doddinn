@@ -1281,6 +1281,14 @@ tr.q-skipped { opacity: .45; text-decoration: line-through; background: repeatin
                 onclick="showQuoteTab('analytics')">
           📊 Greining
         </button>
+        <!-- ▼ Sýnidæmi (opnar ./demo.mp4 — virkar bæði á Pages og staðbundið) ▼ -->
+        <button type="button" id="qtab-btn-demo" onclick="openDemoVideo()"
+                title="Horfa á stutt sýnidæmi um portalinn"
+                style="margin-left:auto;padding:7px 16px;font-size:13px;font-weight:700;border:1.5px solid var(--purple);border-radius:8px;background:var(--surface);color:var(--purple);cursor:pointer;align-self:center;margin-bottom:4px;white-space:nowrap;"
+                onmouseover="this.style.background='var(--purple)';this.style.color='#fff';"
+                onmouseout="this.style.background='var(--surface)';this.style.color='var(--purple)';">
+          ▶️ Sýnidæmi
+        </button>
       </div>
 
       <!-- ── FLIPASVÆÐI: Nýtt tilboð ─────────────────────── -->
@@ -2487,6 +2495,31 @@ tr.q-skipped { opacity: .45; text-decoration: line-through; background: repeatin
 
 <!-- ═══════════════════ MODAL GLUGGAR ═══════════════════ -->
 <div id="modal-overlay" onclick="closeAllModals()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;backdrop-filter:blur(2px);"></div>
+
+<!-- ▼▼▼ Sýnidæmi modal (video player fyrir ./demo.mp4) ▼▼▼ -->
+<div id="modal-demo-overlay" onclick="closeDemoVideo()"
+     style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:9500;backdrop-filter:blur(3px);"></div>
+<div id="modal-demo-video" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:9501;background:#000;border-radius:14px;width:min(92vw, 960px);max-height:92vh;box-shadow:0 24px 80px rgba(0,0,0,.5);overflow:hidden;">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--surface);border-bottom:1px solid var(--border-col);">
+    <div style="font-weight:700;color:var(--text);font-size:14px;">▶️ Sýnidæmi — Advania Sölukerfi</div>
+    <button type="button" onclick="closeDemoVideo()" title="Loka (Esc)"
+            style="padding:4px 10px;background:none;border:1px solid var(--border-col);border-radius:6px;color:var(--text-muted);font-size:14px;cursor:pointer;font-weight:700;">✕</button>
+  </div>
+  <div style="position:relative;background:#000;">
+    <video id="demo-video-player" controls preload="none" playsinline
+           style="display:block;width:100%;max-height:calc(92vh - 48px);background:#000;outline:none;"
+           onerror="document.getElementById('demo-video-error').style.display='flex';">
+      <source src="./demo.mp4" type="video/mp4">
+      Þinn vafri styður ekki HTML5 video tag.
+    </video>
+    <div id="demo-video-error" style="display:none;position:absolute;inset:0;background:rgba(0,0,0,.9);color:#fff;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center;font-size:14px;">
+      <div style="font-size:40px;margin-bottom:12px;">📼</div>
+      <div style="font-weight:700;margin-bottom:8px;">Sýnidæmið fannst ekki</div>
+      <div style="color:#ccc;max-width:420px;line-height:1.5;">Skráin <code style="background:#222;padding:2px 6px;border-radius:4px;">demo.mp4</code> þarf að vera í sömu möppu og <code style="background:#222;padding:2px 6px;border-radius:4px;">index.html</code>. Á GitHub Pages er hún í rót repo-sins; staðbundið þarf hún að vera í sömu möppu og HTML-skráin.</div>
+    </div>
+  </div>
+</div>
+<!-- ▲▲▲ Sýnidæmi modal ▲▲▲ -->
 
 <!-- Bæta við starfsmanni -->
 <div id="modal-add-employee" class="modal" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:201;background:var(--surface);border-radius:16px;padding:28px;width:100%;max-width:440px;box-shadow:0 20px 60px rgba(0,0,0,.3);">
@@ -4280,6 +4313,36 @@ tr.q-skipped { opacity: .45; text-decoration: line-through; background: repeatin
     document.getElementById('modal-overlay').style.display = 'none';
     document.querySelectorAll('.modal').forEach(m => m.style.display = 'none');
   }
+
+  // ── Sýnidæmi (demo video) ─────────────────────────────
+  window.openDemoVideo = function() {
+    var ov  = document.getElementById('modal-demo-overlay');
+    var box = document.getElementById('modal-demo-video');
+    var err = document.getElementById('demo-video-error');
+    var vid = document.getElementById('demo-video-player');
+    if (!ov || !box || !vid) return;
+    if (err) err.style.display = 'none';
+    ov.style.display  = 'block';
+    box.style.display = 'block';
+    // Load on demand (preload="none" means it hasn't been fetched yet)
+    try { vid.load(); } catch(e){}
+    try { vid.play().catch(function(){ /* autoplay may be blocked — user can click */ }); } catch(e){}
+  };
+  window.closeDemoVideo = function() {
+    var ov  = document.getElementById('modal-demo-overlay');
+    var box = document.getElementById('modal-demo-video');
+    var vid = document.getElementById('demo-video-player');
+    if (vid) { try { vid.pause(); vid.currentTime = 0; } catch(e){} }
+    if (ov)  ov.style.display  = 'none';
+    if (box) box.style.display = 'none';
+  };
+  // Esc lokar sýnidæmi-modal
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') {
+      var box = document.getElementById('modal-demo-video');
+      if (box && box.style.display !== 'none') window.closeDemoVideo();
+    }
+  });
 
   // ══════════════════════════════════════════════════════
   //  localStorage HELPERS
